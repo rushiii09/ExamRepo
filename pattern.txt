@@ -1,0 +1,33 @@
+#!/bin/bash
+
+print_pattern() {
+    echo "Enter the number of rows:"
+    read rows
+    
+    for ((i = rows; i >= 1; i--)); do
+        for ((j = rows; j > i; j--)); do
+            echo -n " "
+        done
+        for ((j = 5; j >= 1; j--)); do
+            if [ $j -le $i ]; then
+                echo -n "$j "
+            fi
+        done
+        echo ""
+    done
+}
+
+while true; do
+    echo "Menu:"
+    echo "1. Print Pattern"
+    echo "2. Exit"
+    echo "Enter your choice:"
+    read choice
+
+    case $choice in
+        1) print_pattern ;;
+        2) echo "Exiting the script. Goodbye!"; break ;;
+        *) echo "Invalid choice. Please enter 1 or 2." ;;
+    esac
+done
+
